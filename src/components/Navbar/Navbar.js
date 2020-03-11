@@ -6,8 +6,9 @@ import {
   OptionsContainer,
   OptionLink
 } from "./Navbar.styles";
+import { connect } from "react-redux";
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   return (
     <Fragment>
       <HeaderContainer>
@@ -16,11 +17,31 @@ const Navbar = () => {
         </LogoContainer>
         <OptionsContainer>
           <OptionLink to="/home">Home</OptionLink>
-          <OptionLink to="/cart">Cart</OptionLink>
+          <OptionLink to="/cart">
+            Cart{" "}
+            <span
+              style={{
+                borderRadius: 10,
+                backgroundColor: "#333",
+                color: "#fff",
+                padding: 10,
+                margin: 10
+              }}
+            >
+              {cartItems.reduce(
+                (total, cartItem) => total + cartItem.quantity,
+                0
+              )}
+            </span>
+          </OptionLink>
         </OptionsContainer>
       </HeaderContainer>
     </Fragment>
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => ({
+  cartItems: state.cart.cartItems
+});
+
+export default connect(mapStateToProps)(Navbar);
