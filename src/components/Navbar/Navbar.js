@@ -1,10 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { Fragment } from "react";
 
-const Navbar = props => {
-  return <div>Navbar</div>;
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionLink
+} from "./Navbar.styles";
+
+const Navbar = () => {
+  return (
+    <Fragment>
+      <HeaderContainer>
+        <LogoContainer to="/">
+          <h1>MB E-Commerce</h1>
+        </LogoContainer>
+        <OptionsContainer>
+          <OptionLink to="/home">Home</OptionLink>
+          <OptionLink to="/cart">Cart</OptionLink>
+        </OptionsContainer>
+      </HeaderContainer>
+    </Fragment>
+  );
 };
-
-Navbar.propTypes = {};
 
 export default Navbar;
