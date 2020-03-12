@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { addItemToCart } from "../../redux/actions/cartActions";
 import { CartSpan, CartInput } from "../../utils/global.styles";
+import ReviewForm from "../review/ReviewForm";
 
 const ProductItem = ({ item, addItemToCart, cartItems }) => {
   const [quantity, setQuantity] = useState(0);
@@ -66,6 +67,7 @@ const ProductItem = ({ item, addItemToCart, cartItems }) => {
           : "Add To Cart"}
       </button>
       <p>{description}</p>
+      <ReviewForm />
     </div>
   );
 };
