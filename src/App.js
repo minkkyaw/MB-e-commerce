@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 
 import "./App.css";
 
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 
